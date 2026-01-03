@@ -1,0 +1,198 @@
+:root {
+  /* Colors - Deep Cosmos / Neon Theme */
+  --color-bg-primary: #050b14;
+  /* Deepest blue/black */
+  --color-bg-secondary: #0f172a;
+  /* Slate 900 */
+  --color-bg-card: rgba(15, 23, 42, 0.6);
+  /* Glassy card */
+
+  --color-accent-primary: #0ea5e9;
+  /* Sky 500 - Neon Blue */
+  --color-accent-secondary: #8b5cf6;
+  /* Violet 500 - Neon Purple */
+  --color-accent-glow: rgba(14, 165, 233, 0.4);
+
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #64748b;
+
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-success: #10b981;
+  --color-danger: #f43f5e;
+
+  --font-sans: 'Outfit', system-ui, sans-serif;
+
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  /* Premium Dark Travel Background */
+  background-image:
+    linear-gradient(to bottom, rgba(5, 11, 20, 0.85), rgba(5, 11, 20, 0.95)),
+    url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+
+}
+
+/* Glassmorphism Card Updates */
+.card {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  border-color: rgba(14, 165, 233, 0.3);
+  box-shadow: 0 10px 40px -5px rgba(0, 0, 0, 0.4), 0 0 20px rgba(14, 165, 233, 0.1);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+  color: white;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+  filter: brightness(1.1);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: white;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent-primary);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Region Cards */
+.region-card .bg-img {
+  transition: transform 0.5s ease;
+}
+
+.region-card:hover .bg-img {
+  transform: scale(1.1);
+}
+
+.region-card span {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Nav Link Styles */
+.nav-link {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  background: var(--color-accent-primary);
+  box-shadow: 0 0 15px var(--color-accent-glow);
+}
+
+/* Slide Up & Glow */
+.slide-up-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slide-up-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.2);
+}
+
+.slide-up-hover:hover img {
+  filter: brightness(1.1);
+  transition: filter 0.3s ease;
+}
